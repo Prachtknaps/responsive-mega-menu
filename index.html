@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== CSS imports ===== -->
+    <link rel="stylesheet" href="./assets/css/general.css">
+    <link rel="stylesheet" href="./assets/css/mega-menu.css">
     <title>Responsive Mega Menu</title>
 </head>
 <body>
-    
+    <nav class="mega-menu">
+        <div class="header">
+            <a class="logo" href="#" title="Navigate to 'Home' via logo.">LOGO</a>
+        </div>
+        <ul class="links-container">
+            <li><a href="#" title="Navigate to 'Home'.">Home</a></li>
+            <li><a href="#" title="Navigate to 'About'.">About</a></li>
+            <li class="expandable">
+                <span>Products</span>
+                <div class="menu">
+                    <div class="category"></div>
+                    <div class="category"></div>
+                    <div class="category"></div>
+                    <div class="category"></div>
+                </div>
+            </li>
+            <li><a href="#" title="Navigate to 'Contact'.">Contact</a></li>
+        </ul>
+    </nav>
 </body>
 </html>

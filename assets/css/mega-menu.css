@@ -1,0 +1,73 @@
+:root {
+    --mega-menu-height: 4rem;
+}
+
+.mega-menu {
+    width: 100%; height: var(--mega-menu-height);
+    display: flex; flex-direction: row; align-items: center; justify-content: space-around;
+    position: fixed; left: 0; top: 0; z-index: 1000;
+    background-color: yellow;
+}
+
+
+/* ===== Header ===== */
+
+.mega-menu .header {
+    width: fit-content; height: var(--mega-menu-height);
+    background-color: orange;
+}
+
+.mega-menu .header .logo {
+    width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    font-size: 1.2rem; font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* ===== Links ===== */
+
+.mega-menu .links-container {
+    width: fit-content; height: var(--mega-menu-height); gap: 1rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    list-style: none;
+    background-color: orange;
+}
+
+.mega-menu .links-container li {
+    width: fit-content; height: var(--mega-menu-height);
+}
+
+.mega-menu .links-container li > a {
+    width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    text-decoration: none;
+    background-color: greenyellow;
+}
+
+
+/* ===== Mega Menu ===== */
+
+.mega-menu .links-container li.expandable > span {
+    width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: green;
+}
+
+.mega-menu .links-container li.expandable .menu {
+    width: 100vw; height: fit-content; max-height: 50vh; overflow: hidden;
+    display: flex; flex-direction: row; align-items: flex-start; justify-content: center;
+    position: fixed; left: 0; top: var(--mega-menu-height); 
+    background-color: aqua;
+}
+
+.mega-menu .links-container li.expandable:hover .menu {
+    max-height: 50vh;;
+}
+
+.mega-menu .links-container li.expandable .menu .category {
+    width: 250px; max-width: 25%; height: 500px;
+    background-color: blue;
+}
