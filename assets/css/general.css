@@ -1,4 +1,13 @@
+:root {
+    --accent-color-primary: rgb(179, 0, 202);
+    --accent-color-background: rgba(152, 0, 182, 0.05);
+}
+
 * {
     margin: 0; padding: 0; box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: azure;
 }

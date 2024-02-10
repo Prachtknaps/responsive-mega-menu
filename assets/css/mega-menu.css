@@ -1,12 +1,13 @@
 :root {
     --mega-menu-height: 4rem;
+    --mega-menu-background-color: #FFFFFF;
 }
 
 .mega-menu {
-    width: 100%; height: var(--mega-menu-height);
+    width: 100%; height: var(--mega-menu-height); max-height: var(--mega-menu-height);
     display: flex; flex-direction: row; align-items: center; justify-content: space-around;
     position: fixed; left: 0; top: 0; z-index: 1000;
-    background-color: yellow;
+    background-color: var(--mega-menu-background-color); /*box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);*/
 }
 
 
@@ -14,14 +15,13 @@
 
 .mega-menu .header {
     width: fit-content; height: var(--mega-menu-height);
-    background-color: orange;
 }
 
 .mega-menu .header .logo {
     width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
     display: flex; flex-direction: row; align-items: center; justify-content: center;
-    font-size: 1.2rem; font-weight: 600;
-    text-decoration: none;
+    font-size: 1.5rem; font-weight: 700; text-decoration: none;
+    color: var(--accent-color-primary);
 }
 
 
@@ -31,7 +31,6 @@
     width: fit-content; height: var(--mega-menu-height); gap: 1rem;
     display: flex; flex-direction: row; align-items: center; justify-content: center;
     list-style: none;
-    background-color: orange;
 }
 
 .mega-menu .links-container li {
@@ -42,32 +41,125 @@
     width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
     display: flex; flex-direction: row; align-items: center; justify-content: center;
     text-decoration: none;
-    background-color: greenyellow;
+    color: #000000;
+}
+
+.mega-menu .links-container li > a:hover {
+    color: var(--accent-color-primary);
+}
+
+
+/* ===== Mega Menu Link ===== */
+
+.mega-menu .links-container li.expandable > span {
+    width: fit-content; height: var(--mega-menu-height); padding: 0 1rem; gap: 0.5rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mega-menu .links-container li.expandable > span i {
+    font-size: 1.25rem;
+}
+
+.mega-menu .links-container li.expandable:hover > span {
+    color: var(--accent-color-primary);
+}
+
+.mega-menu .links-container li.expandable:hover > span i {
+    transform: rotate(180deg);
 }
 
 
 /* ===== Mega Menu ===== */
 
-.mega-menu .links-container li.expandable > span {
-    width: fit-content; height: var(--mega-menu-height); padding: 0 1rem;
-    display: flex; flex-direction: row; align-items: center; justify-content: center;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: green;
-}
-
 .mega-menu .links-container li.expandable .menu {
-    width: 100vw; height: fit-content; max-height: 50vh; overflow: hidden;
+    width: 100vw; height: fit-content; max-height: 0; padding: 0; gap: 2rem; overflow: hidden;
     display: flex; flex-direction: row; align-items: flex-start; justify-content: center;
-    position: fixed; left: 0; top: var(--mega-menu-height); 
-    background-color: aqua;
+    position: fixed; left: 0; top: calc(var(--mega-menu-height)); z-index: -1; transform: translateY(0);
+    background-color: var(--mega-menu-background-color); box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
 }
 
 .mega-menu .links-container li.expandable:hover .menu {
-    max-height: 50vh;;
+    max-height: 80vh; padding: 2rem 10%;
 }
 
 .mega-menu .links-container li.expandable .menu .category {
-    width: 250px; max-width: 25%; height: 500px;
-    background-color: blue;
+    width: 100%; max-width: 25%; height: fit-content; gap: 0.5rem;
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+}
+
+
+/* ===== Mega Menu Item ===== */
+
+.mega-menu .links-container li.expandable .menu .category .title {
+    margin-bottom: 1rem;
+    font-size: 1.1rem; font-weight: 600;
+}
+
+.mega-menu .links-container li.expandable .menu .category .item {
+    width: 100%; height: fit-content; padding: 0.5rem; gap: 1rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-start;
+}
+
+.mega-menu .links-container li.expandable .menu .category .item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mega-menu .links-container li.expandable .menu .category .item .icon {
+    min-width: 2rem; width: 2rem; max-width: 2rem; min-height: 2rem; height: 2rem; max-height: 2rem;
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background-color: var(--accent-color-background);
+}
+
+.mega-menu .links-container li.expandable .menu .category .item .icon i {
+    font-size: 1.25rem;
+    color: var(--accent-color-primary);
+}
+
+.mega-menu .links-container li.expandable .menu .category .item .info {
+    width: 100%; overflow: hidden;
+    text-decoration: none; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.mega-menu .links-container li.expandable .menu .category .item .item-title {
+    width: 100%;
+    font-weight: 600;
+    color: #000000;
+}
+
+.mega-menu .links-container li.expandable .menu .category .item:hover .item-title {
+    color: var(--accent-color-primary);
+}
+
+.mega-menu .links-container li.expandable .menu .category .item .item-description {
+    width: 100%; overflow: hidden;
+    font-size: 0.8rem; text-overflow: ellipsis; white-space: nowrap;
+
+    @supports(-webkit-line-clamp: 2) {
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis; white-space: initial;
+        -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    }
+}
+
+
+@media all and (max-width: 1080px) {
+    .mega-menu .links-container li.expandable .menu {
+        overflow: scroll;
+        flex-wrap: wrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .mega-menu .links-container li.expandable .menu::-webkit-scrollbar {
+        display: none;
+    }
+    .mega-menu .links-container li.expandable:hover .menu {
+        max-height: calc(100vh - var(--mega-menu-height)); padding: 2rem 5%;
+    }
+    .mega-menu .links-container li.expandable .menu .category {
+        min-width: 40%; max-width: 40%;
+    }
 }
