@@ -1,1 +1,2 @@
-# responsive-mega-menu
+# Responsive Mega Menu
+Created by Prachtknaps
